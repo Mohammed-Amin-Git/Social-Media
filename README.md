@@ -1,2 +1,3 @@
 # Social-Media
-Social-Media is a simple project to try to create a social media platform. This projects uses Node.js for the backend and vanilla Javascript for the frontend.
+ℹ The goal of this project is to create a simple social media platform, that resembles something like Facebook.  
+👩🏾‍💻  The backend consists of Node.js and SQLite3. The frontend consists of vanilla Javascript.
