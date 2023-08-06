@@ -1,0 +1,25 @@
+{
+  "name": "social-media",
+  "version": "1.0.0",
+  "description": "Simple social media platform using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammed-Amin-Git/Social-Media.git"
+  },
+  "author": "Mohammed Amin Elm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohammed-Amin-Git/Social-Media/issues"
+  },
+  "homepage": "https://github.com/Mohammed-Amin-Git/Social-Media#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "sqlite3": "^5.1.6"
+  }
+}
