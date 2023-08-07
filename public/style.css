@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Jost', sans-serif;
+    background-color: #FFF6E0;
+    background-color: #61677A;
+}
+header {
+    text-align: center;
+    background-color: #272829;
+    color: #D8D9DA;
+    margin: 0;
+}
+#title {
+    padding: 30px;
+}
+.login-container {
+    position: relative;
+    background-color: #61677A;
+    background-color: #3d3735;
+    width: 50%;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px black;
+    transition: 1s;
+}
+.login-container:hover {
+    padding: 40px;
+    box-shadow: 15px 15px 10px black;
+}
+.login-input {
+    width: 50%;
+    height: 50px;
+    margin: 15px;
+    border-radius: 10px;
+    display: block;
+    border: solid 2px #272829;
+    background-color: #f0d8a1;
+    color: #272829;
+    transition: 0.5s;
+    padding: 0px;
+}
+.login-input:hover {
+    padding: 3px;
+    box-shadow: 5px 5px 5px black;
+}
+.login-submit {
+    width: 30%;
+    font-size: 40px;
+    background-color: #272829;
+    border: solid 1px #272829;
+    border-radius: 20px;
+    transition: 1s;
+    display: block;
+    cursor: pointer;
+}
+.login-submit:hover {
+    font-size: 60px;
+    box-shadow: 5px 5px 5px black;
+}
+#login-label {
+    font-size: 24px;
+    color: #D8D9DA;;
+}
+#account-link {
+    position: relative;
+    top: 10px;
+}
+#account-link a {
+    color: #D8D9DA;
+    text-decoration: none;
+}
