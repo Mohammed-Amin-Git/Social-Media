@@ -7,7 +7,9 @@ body {
     font-family: 'Jost', sans-serif;
 }
 #background {
-    background-image: url("https://www.shutterstock.com/shutterstock/videos/9569429/thumb/1.jpg");
+    /*background-image: url("https://www.shutterstock.com/shutterstock/videos/9569429/thumb/1.jpg");*/
+    position: fixed;
+    background-color: #512B81;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
