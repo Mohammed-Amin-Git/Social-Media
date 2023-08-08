@@ -7,23 +7,21 @@
     <title>Social Media | Login</title>
 </head>
 <body>
-    <canvas id="background" onmousemove="console.log(1)"></canvas>
-        <div id="background-blur"><
-            <header>
-                    <h1 id="title">Social Media</h1>
-            </header>
-            <center>
-                <div class="login-container">
-                        <label id="login-label">Login</label>
-                        <form id="login" action="/login" method="post">
-                            <input type="text" class="login-input" name="username" placeholder="username...">
-                            <input type="password" class="login-input" name="password" placeholder="password...">
-                            <button type="submit" class="login-submit"><span id="rocket">🚀</span></button>
-                            <label id="account-link"><a href="/register">Don't have an account? 😱</a></label>
-                        </form>
-                </div>
-            </center>
-        </div>
+    <canvas id="background"></canvas>
+        <header>
+            <h1 id="title">Social Media</h1>
+        </header>
+        <center>
+            <div class="login-container">
+                <label id="login-label">Login</label>
+                    <form id="login" action="/login" method="post">
+                        <input type="text" class="login-input" name="username" placeholder="username...">
+                        <input type="password" class="login-input" name="password" placeholder="password...">
+                        <button type="submit" class="login-submit"><span id="rocket">🚀</span></button>
+                        <label id="account-link"><a href="/register">Don't have an account? 😱</a></label>
+                    </form>
+            </div>
+        </center>
         <script src="app.js"></script>
 </body>
 </html>
