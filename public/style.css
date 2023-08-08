@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Jost', sans-serif;
+}
+header {
+    text-align: center;
+    background-color: #35155D;
+    color: #D8D9DA;
+    margin: 0;
+    position: relative;
+    top: -22px;
+}
+header h1 {
+    padding: 30px;
+}
+#background {
+    /*background-image: url("https://www.shutterstock.com/shutterstock/videos/9569429/thumb/1.jpg");*/
+    position: absolute ;
+    background-color: #512B81;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    backdrop-filter: blur(5px);
+}
