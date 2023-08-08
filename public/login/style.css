@@ -28,6 +28,7 @@ header {
 header h1 {
     position: relative;
     top: 10px;
+    cursor: pointer;
 }
 #title {
     padding: 30px;
@@ -91,6 +92,7 @@ header h1 {
 }
 #rocket {
     display: block;
+    padding: inherit;
 }
 #rocket:hover {
     animation: rocket 1s;
@@ -104,6 +106,11 @@ header h1 {
 #account-link {
     position: relative;
     top: 13px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+#account-link:hover {
+    font-size: 18px;
 }
 #account-link a {
     color: #D8D9DA;
