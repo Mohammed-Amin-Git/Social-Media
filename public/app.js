@@ -10,7 +10,11 @@ class Typer {
     // This function simulates the type effect using recursion and setTimeout
     type_effect(txt, element, delay, type_index) {
         if(type_index < txt.length) {
-            element.innerHTML = element.innerHTML + txt[type_index];
+            let char = txt[type_index];
+            if(char == " ") {
+                char = "&nbsp;"
+            } 
+            element.innerHTML = element.innerHTML + char;
             type_index++;
             setTimeout(() => {
                 this.type_effect(txt, element, delay, type_index);
@@ -20,16 +24,38 @@ class Typer {
 
     // This that function that you can use to actually write to the "terminal".
     write(txt, delay_per_char, newline=true) {
-        let tag = "span";
-        if(newline) {
-            tag = "p";
-        }
         setTimeout(() => {
-            let element = document.createElement(tag);
+            let element = document.createElement("p");
+            if(newline) {
+                element.style.display = "block";
+            } else {
+                element.style.display = "inline";
+            }
             this.output_container.appendChild(element);
             this.type_effect(txt, element, delay_per_char, 0);
         }, this.start_delay)
         this.start_delay += txt.length * delay_per_char + this.delta_delay;
+    }
+
+    input(placeholder, width, height, submit, newline=true) {
+        let input = document.createElement("input");
+        input.type = "text";
+        input.className = "terminal-input";
+        input.placeholder = placeholder;
+        input.style.width = width.toString() + "px";
+        input.style.height = height.toString() + "px";
+        if(!newline) {
+            input.style.display = "inline";
+        }
+        setTimeout(() => {
+            this.output_container.appendChild(input);
+            window.onkeydown = (e) => {
+                if(e.keyCode == 13) {
+                    submit(input)
+                }
+            }
+        }, this.start_delay);
+        this.start_delay += this.delta_delay;
     }
 }
 
@@ -58,11 +84,6 @@ window.onload = async () => {
         ctx.fillRect(e.clientX, e.clientY, 50, 50);
     });    
 
-    let output_container = document.querySelector(".container");
-    let typer = new Typer(output_container, 500, 1000);
-    typer.write("$ Hello World", 50);
-    typer.write("$ Welcome to Social-Media", 50)
-
     let overlay = document.querySelector("#overlay");
     document.querySelector("#menu").addEventListener("click", () => {
         overlay.style.display = "block";
@@ -75,5 +96,15 @@ window.onload = async () => {
             overlay.style.display = "none";
         }, 450);
     });
+
+    let output_container = document.querySelector(".container");
+    let typer = new Typer(output_container, 500, 1000);
+    typer.write("$ Hello World", 50);
+    typer.write("$ Welcome to Social-Media", 50);
+    typer.write("$ What is your name?  ", 50, newline=false);
+    typer.input("Type your name...", 150, 25, (input) => {
+        alert(input.value);
+        window.onkeydown = null;
+    }, newline=false);
 }
 

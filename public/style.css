@@ -118,3 +118,21 @@ header span:hover {
   left: 5px;
   line-height: 7.5px;
 }
+.terminal-input {
+  position: relative;
+  left: 5px;
+  background-color: #d8d9da;
+  border: solid 2px #35155d;
+  color: #272829;
+  border-radius: 10px;
+  font-family: 'Signika Negative', sans-serif;
+  animation-name: inputfade;
+  animation-duration: 0.5s;
+}
+.terminal-input:focus {
+  outline: none;
+}
+@keyframes inputfade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
