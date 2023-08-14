@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
 
 body {
   margin: 0;
@@ -25,6 +26,11 @@ header span {
   top: 34px;
   font-size: 35px;
   color: #d8d9da;
+  transition: 0.3s;
+  cursor: pointer;
+}
+header span:hover {
+  transform: rotate(90deg);
 }
 @keyframes overlay {
   from {opacity: 0;}
@@ -49,19 +55,48 @@ header span {
   position: absolute;
   top: 34px;
   left: 25px;
-  font-size: 35px;
+  font-size: 40px;
   cursor: pointer;
-  color: #272829;
-  background-color: #d8d9da;
-  padding: 10px;
-  border-radius: 50%;
+  color: #d8d9da;
   width: 45px;
   height: 45px;
   text-align: center;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 #overlay-exit:hover {
-  font-size: 40px;
+  font-size: 45px;
+}
+#nav-container {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 100%;
+}
+.nav-links {
+  display: table;
+  width: 30%;
+  height: 20vh;
+  background-color: #d8d9da;
+  text-align: center;
+  vertical-align: middle;
+  border: solid 1px black;
+  margin: 10px;
+  border-radius: 30px;
+  border: solid 2px black;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.nav-links:hover {
+  box-shadow: 10px 10px 1px black;
+  padding: 10px; 
+}
+.nav-links a {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 30px;
+  font-family: 'Signika Negative', sans-serif;
+  text-decoration: none;
+  color: black;
 }
 #background {
   /*background-image: url("https://www.shutterstock.com/shutterstock/videos/9569429/thumb/1.jpg");*/

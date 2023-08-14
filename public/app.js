@@ -64,7 +64,7 @@ window.onload = async () => {
     typer.write("$ Welcome to Social-Media", 50)
 
     let overlay = document.querySelector("#overlay");
-    document.querySelector("#menu").addEventListener("mouseover", () => {
+    document.querySelector("#menu").addEventListener("click", () => {
         overlay.style.display = "block";
         overlay.style.animationName = "overlay";
     });
