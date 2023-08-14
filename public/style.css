@@ -128,9 +128,14 @@ header span:hover {
   font-family: 'Signika Negative', sans-serif;
   animation-name: inputfadein;
   animation-duration: 0.75s;
+  transition: 0.5s;
 }
 .terminal-input:focus {
   outline: none;
+}
+.terminal-input:hover {
+  padding: 5px;
+  box-shadow: 2px 2px 5px black;
 }
 @keyframes inputfadein {
   from {opacity: 0;}

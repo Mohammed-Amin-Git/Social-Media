@@ -11,9 +11,6 @@ class Typer {
     type_effect(txt, element, delay, type_index) {
         if(type_index < txt.length) {
             let char = txt[type_index];
-            if(char == " ") {
-                char = "&nbsp;"
-            } 
             element.innerHTML = element.innerHTML + char;
             type_index++;
             setTimeout(() => {
@@ -22,7 +19,7 @@ class Typer {
         }
     }
 
-    // This that function that you can use to actually write to the "terminal".
+    // This function can bd used to actually write to the "terminal".
     write(txt, delay_per_char, delta=this.delta_delay, newline=true) {
         setTimeout(() => {
             let element = document.createElement("p");
@@ -37,6 +34,7 @@ class Typer {
         this.start_delay += txt.length * delay_per_char + delta;
     }
 
+    // This function can be used to create an input field on the terminal to receive user input.
     input(placeholder, width, height, submit, delta=this.delta_delay, newline=true) {
         let input = document.createElement("input");
         input.type = "text";
@@ -56,6 +54,14 @@ class Typer {
             }
         }, this.start_delay);
         this.start_delay += delta;
+    }
+
+    clearInput(input) {
+        window.onkeydown = null;
+        //input.style.animationName = "inputfadeout";
+        //input.style.animationDuration = "1.5s";
+        //input.style.opacity = 0;
+        input.disabled = true;
     }
 }
 
@@ -84,12 +90,14 @@ window.onload = async () => {
         ctx.fillRect(e.clientX, e.clientY, 50, 50);
     });    
 
+    // When the user presses the menu button, the overlay menu gets displayed
     let overlay = document.querySelector("#overlay");
     document.querySelector("#menu").addEventListener("click", () => {
         overlay.style.display = "block";
         overlay.style.animationName = "overlay";
     });
 
+    // When the user presses the menu button, the overlay menu gets hidden
     document.querySelector("#overlay-exit").addEventListener("click", () => {
         overlay.style.animationName = "downlay";
         setTimeout(() => {
@@ -99,15 +107,44 @@ window.onload = async () => {
 
     let output_container = document.querySelector(".container");
     let typer = new Typer(output_container, 500, 1000);
-    typer.write("$ Hello World", 50);
+    typer.write("$ Hello World!", 50);
     typer.write("$ Welcome to Social-Media", 50);
-    typer.write("$ What is your name?  ", 50, delta=200, newline=false);
-    typer.input("Type your name...", 150, 25, (input) => {
-        alert(input.value);
-        window.onkeydown = null;
-        input.style.animationName = "inputfadeout";
-        input.style.animationDuration = "1.5s";
-        input.style.opacity = 0;
-    }, newline=false);
+    typer.write("$ Do you have an account?", 50, delta=200);
+    typer.input("Yes or no...", 150, 25, (input) => {
+        typer.clearInput(input);
+        typer.start_delay = 0;
+        if(input.value.toLowerCase() == "yes") {
+            typer.write("$ Would you like to go to the login page?", 50);
+            typer.input("Yes or no...", 150, 25, (input) => {
+                if(input.value.toLowerCase() == "yes") {
+                    typer.clearInput(input);
+                    typer.start_delay = 0;
+                    typer.write("$ Traveling to /login", 25);
+                    setTimeout(() => {location.href = "/login"}, 2000);
+                } else {
+                    typer.clearInput(input);
+                    typer.start_delay = 0;
+                    typer.write("$ Feel free to explorer the interactive website. Enjoy!");
+                }
+            });
+        } else if(input.value.toLowerCase() == "no") {
+            typer.write("$ Would you like to go to the register page?", 50);
+            typer.input("Yes or no...", 150, 25, (input) => {
+                if(input.value.toLowerCase() == "yes") {
+                    typer.clearInput(input);
+                    typer.start_delay = 0;
+                    typer.write("$ Traveling to /register", 25);
+                    setTimeout(() => {location.href = "/register"}, 2000);
+                } else {
+                    typer.clearInput(input);
+                    typer.start_delay = 0;
+                    typer.write("$ Feel free to explorer the interactive website. Enjoy!");
+                }
+            });
+        } else {
+            typer.write("$ I did not quite get that", 50);
+            typer.write("Feel free to explorer the interactive website. Enjoy!", 50);
+        }
+    });
 }
 
