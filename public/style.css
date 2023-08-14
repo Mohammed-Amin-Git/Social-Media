@@ -126,13 +126,17 @@ header span:hover {
   color: #272829;
   border-radius: 10px;
   font-family: 'Signika Negative', sans-serif;
-  animation-name: inputfade;
-  animation-duration: 0.5s;
+  animation-name: inputfadein;
+  animation-duration: 0.75s;
 }
 .terminal-input:focus {
   outline: none;
 }
-@keyframes inputfade {
+@keyframes inputfadein {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+@keyframes inputfadeout {
+  from {opacity: 1;}
+  to {opacity: 0s;}
 }

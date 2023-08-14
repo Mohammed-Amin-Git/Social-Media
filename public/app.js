@@ -23,7 +23,7 @@ class Typer {
     }
 
     // This that function that you can use to actually write to the "terminal".
-    write(txt, delay_per_char, newline=true) {
+    write(txt, delay_per_char, delta=this.delta_delay, newline=true) {
         setTimeout(() => {
             let element = document.createElement("p");
             if(newline) {
@@ -34,10 +34,10 @@ class Typer {
             this.output_container.appendChild(element);
             this.type_effect(txt, element, delay_per_char, 0);
         }, this.start_delay)
-        this.start_delay += txt.length * delay_per_char + this.delta_delay;
+        this.start_delay += txt.length * delay_per_char + delta;
     }
 
-    input(placeholder, width, height, submit, newline=true) {
+    input(placeholder, width, height, submit, delta=this.delta_delay, newline=true) {
         let input = document.createElement("input");
         input.type = "text";
         input.className = "terminal-input";
@@ -55,7 +55,7 @@ class Typer {
                 }
             }
         }, this.start_delay);
-        this.start_delay += this.delta_delay;
+        this.start_delay += delta;
     }
 }
 
@@ -101,10 +101,13 @@ window.onload = async () => {
     let typer = new Typer(output_container, 500, 1000);
     typer.write("$ Hello World", 50);
     typer.write("$ Welcome to Social-Media", 50);
-    typer.write("$ What is your name?  ", 50, newline=false);
+    typer.write("$ What is your name?  ", 50, delta=200, newline=false);
     typer.input("Type your name...", 150, 25, (input) => {
         alert(input.value);
         window.onkeydown = null;
+        input.style.animationName = "inputfadeout";
+        input.style.animationDuration = "1.5s";
+        input.style.opacity = 0;
     }, newline=false);
 }
 
