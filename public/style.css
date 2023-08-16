@@ -44,7 +44,7 @@ header span:hover {
   position: absolute;
   top: 0px;
   right: 0px;
-  background-color: #272829;
+  background-image: linear-gradient(to right, #4B4452, #005140);
   width: 100%;
   height: 100vh;
   z-index: 2;
@@ -67,15 +67,20 @@ header span:hover {
   font-size: 45px;
 }
 #nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
-  top: 20%;
-  left: 35%;
+  top: 10%;
   width: 100%;
+}
+#logo {
+  display: table;
 }
 .nav-links {
   display: table;
   width: 30%;
-  height: 20vh;
+  height: 15vh;
   background-color: #d8d9da;
   text-align: center;
   vertical-align: middle;
@@ -101,11 +106,11 @@ header span:hover {
 #background {
   /*background-image: url("https://www.shutterstock.com/shutterstock/videos/9569429/thumb/1.jpg");*/
   position: fixed;
-  background-color: #512b81;
+  background-image: linear-gradient(to bottom right, #512b81,#DE4E6F, #F9F871);
 }
 .container {
   border: solid 5px #35155d;
-  background-color: #4477ce;
+  background-image: linear-gradient(to top right, #0D53A7, #41C7B3);
   width: 60%;
   height: 60vh;
   position: relative;

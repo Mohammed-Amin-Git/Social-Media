@@ -9,7 +9,7 @@ body {
 #background {
     /*background-image: url("https://www.shutterstock.com/shutterstock/videos/9569429/thumb/1.jpg");*/
     position: fixed;
-    background-color: #512B81;
+    background-image: linear-gradient(to bottom right, #512b81,#DE4E6F, #F9F871);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -35,8 +35,7 @@ header h1 {
 }
 .login-container {
     position: relative;
-    background-color: #61677A;
-    background-color: #4477CE;
+    background-image: linear-gradient(to top right, #0D53A7, #41C7B3);
     width: 50%;
     padding: 30px;
     border-radius: 20px;
