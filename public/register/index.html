@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Social Media | Register</title>
+</head>
+<body>
+    <canvas id="background"></canvas>
+    <header>
+        <h1 id="title" onclick="location.href = '/';">Social Media</h1>
+    </header>
+    <center>
+        <div class="container">
+            <label id="register-label">Register</label>
+            <form method="POST" action="/regiser">
+                <input type="text" placeholder="username" name="username" class="input-field" required>
+                <input type="text" placeholder="email" name="email" class="input-field" required>
+                <input type="password" placeholder="password" name="password" class="input-field" required>
+                <button id="register-submit"><span id="rocket">🐱‍🏍</span></button>
+                <label id="account-link"><a href="/login">Already have an account? 🤩</a></label>
+            </form>
+        </div>
+    </center>
+    <script src="app.js"></script>
+</body>
+</html>

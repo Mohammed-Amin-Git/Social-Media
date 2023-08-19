@@ -14,3 +14,9 @@ app.use(cookie_parser());
 app.listen(3000, () => {
     console.log("Listening at port 3000");
 });
+
+app.post("/login", (req, res) => {
+    let username = req.fields.username;
+    let password = req.fields.password;
+});
+
