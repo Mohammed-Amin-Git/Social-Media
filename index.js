@@ -15,8 +15,18 @@ app.listen(3000, () => {
     console.log("Listening at port 3000");
 });
 
-app.post("/login", (req, res) => {
+app.post("/register", (req, res) => {
     let username = req.fields.username;
+    let email = req.fields.email;
     let password = req.fields.password;
+
+    db.all("SELECT * FROM users WHERE username = ? OR email = ?", [username, email], (err, rows) => {
+        if(rows.length > 0) {
+            res.redirect("/register?alreadytaken")
+        } else {
+            db.run("INSERT INTO users (username, email, password) VALUES(?,?,?);", [username, email, password]);
+            res.redirect("/register/success")
+        }
+    });
 });
 
